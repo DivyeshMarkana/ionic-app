@@ -146,7 +146,7 @@ export class DrawerPage implements AfterViewInit {
     // '180.01deg' because particularly in android it's rotating opposite menu open/close (not on drag though)
     // https://stackoverflow.com/a/25694077
 
-
+    
     // const iconAnim = createAnimation()
     //   .addElement(menuElement.querySelector('.menu__icon'))
     //   .fromTo(
@@ -170,20 +170,20 @@ export class DrawerPage implements AfterViewInit {
     //     'translate3d(0px, 0px, 0) rotate(0deg) scaleX(1.0)',
     //     'translate3d(6px, -2px, 0) rotate(-45deg) scaleX(0.65)'
     //   );
-    // const menuIconAnim = createAnimation()
-    //   .addElement(menuElement)
-    //   .fromTo(
-    //     'transform',
-    //     'translateX(0px)',
-    //     `translateX(${this.drawerWidth}px)`
-    //   )
-    //   .addAnimation(iconAnim)
-    //   .addAnimation(line1Anim)
-    //   .addAnimation(line3Anim);
+    const menuIconAnim = createAnimation()
+      .addElement(menuElement)
+      .fromTo(
+        'transform',
+        'translateX(0px)',
+        `translateX(${this.drawerWidth}px)`
+      )
+      // .addAnimation(iconAnim)
+      // .addAnimation(line1Anim)
+      // .addAnimation(line3Anim);
 
-    // menuController.registerAnimation('my-reveal', (menu: MenuI) =>
-    //   revealAnimation(menu, [avatarAnim, ...drawerItems, menuIconAnim])
-    // );
+    menuController.registerAnimation('my-reveal', (menu: MenuI) =>
+      revealAnimation(menu, [avatarAnim, ...drawerItems, menuIconAnim])
+    );
   }
 
   onDrawerNavigate(page: DrawerScreen) {
