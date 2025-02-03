@@ -145,43 +145,45 @@ export class DrawerPage implements AfterViewInit {
     const menuElement = this.menuIconRef?.nativeElement;
     // '180.01deg' because particularly in android it's rotating opposite menu open/close (not on drag though)
     // https://stackoverflow.com/a/25694077
-    const iconAnim = createAnimation()
-      .addElement(menuElement.querySelector('.menu__icon'))
-      .fromTo(
-        'transform',
-        'translate(-50%, -50%)',
-        'rotate(180.01deg) translate(50%, 50%)'
-      );
 
-    const line1Anim = createAnimation()
-      .addElement(menuElement.querySelector('.menu__line--1'))
-      .fromTo(
-        'transform',
-        'translate3d(0px, 0px, 0) rotate(0deg) scaleX(1.0)',
-        'translate3d(6px, 2px, 0) rotate(45deg) scaleX(0.65)'
-      );
 
-    const line3Anim = createAnimation()
-      .addElement(menuElement.querySelector('.menu__line--3'))
-      .fromTo(
-        'transform',
-        'translate3d(0px, 0px, 0) rotate(0deg) scaleX(1.0)',
-        'translate3d(6px, -2px, 0) rotate(-45deg) scaleX(0.65)'
-      );
-    const menuIconAnim = createAnimation()
-      .addElement(menuElement)
-      .fromTo(
-        'transform',
-        'translateX(0px)',
-        `translateX(${this.drawerWidth}px)`
-      )
-      .addAnimation(iconAnim)
-      .addAnimation(line1Anim)
-      .addAnimation(line3Anim);
+    // const iconAnim = createAnimation()
+    //   .addElement(menuElement.querySelector('.menu__icon'))
+    //   .fromTo(
+    //     'transform',
+    //     'translate(-50%, -50%)',
+    //     'rotate(180.01deg) translate(50%, 50%)'
+    //   );
 
-    menuController.registerAnimation('my-reveal', (menu: MenuI) =>
-      revealAnimation(menu, [avatarAnim, ...drawerItems, menuIconAnim])
-    );
+    // const line1Anim = createAnimation()
+    //   .addElement(menuElement.querySelector('.menu__line--1'))
+    //   .fromTo(
+    //     'transform',
+    //     'translate3d(0px, 0px, 0) rotate(0deg) scaleX(1.0)',
+    //     'translate3d(6px, 2px, 0) rotate(45deg) scaleX(0.65)'
+    //   );
+
+    // const line3Anim = createAnimation()
+    //   .addElement(menuElement.querySelector('.menu__line--3'))
+    //   .fromTo(
+    //     'transform',
+    //     'translate3d(0px, 0px, 0) rotate(0deg) scaleX(1.0)',
+    //     'translate3d(6px, -2px, 0) rotate(-45deg) scaleX(0.65)'
+    //   );
+    // const menuIconAnim = createAnimation()
+    //   .addElement(menuElement)
+    //   .fromTo(
+    //     'transform',
+    //     'translateX(0px)',
+    //     `translateX(${this.drawerWidth}px)`
+    //   )
+    //   .addAnimation(iconAnim)
+    //   .addAnimation(line1Anim)
+    //   .addAnimation(line3Anim);
+
+    // menuController.registerAnimation('my-reveal', (menu: MenuI) =>
+    //   revealAnimation(menu, [avatarAnim, ...drawerItems, menuIconAnim])
+    // );
   }
 
   onDrawerNavigate(page: DrawerScreen) {
